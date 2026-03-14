@@ -1,8 +1,128 @@
 import streamlit as st
 
-st.sidebar.success("Select above page.")
+st.sidebar.title("Navigation")
 
-st.title(":green[FAQs about Customer Churn]")
+st.sidebar.markdown("""
+### Sections
+
+- [About Project](#about-project)
+- [Business Insights](#business-insights)
+- [FAQ](#faq)
+
+---
+
+### Model
+
+- **[Churn Prediction](prediction)**
+""")
+
+st.title(":green[Telecom Customer Churn Analysis & Prediction]")
+
+# Introduction Section
+
+st.markdown('<div id="about-project" style="position: relative; top: -70px;"></div>',unsafe_allow_html=True)
+st.header(":orange[About This Project]")
+
+st.write("""
+This project analyzes customer behavior to understand **why customers leave a telecom service (customer churn)** 
+and identifies important factors that influence churn.
+
+The analysis includes:
+- Data preprocessing using **Pandas**
+- Exploratory Data Analysis (EDA)
+- Visualization of churn patterns
+- Building machine learning models using **Scikit-learn** to predict churn
+
+The goal is to help businesses **identify high-risk customers and take proactive steps to improve retention**.
+""")
+
+st.markdown("---")
+
+
+#Business Insights Section
+
+st.markdown('<div id="business-insights" style="position: relative; top: -70px;"></div>', unsafe_allow_html=True)
+st.header(":orange[Business Insights]")
+
+st.subheader("1. Contract Type is the Strongest Indicator of Churn")
+
+st.markdown("""
+Customers with **month-to-month contracts show the highest churn rate (~43%)**, 
+while customers with **one-year or two-year contracts churn significantly less**.
+
+This indicates that **long-term contracts increase customer retention** and reduce 
+the likelihood of customers leaving the service.
+
+**Implication / Recommendation:**
+
+Telecom companies should encourage customers to move to **longer contract plans through discounts or loyalty benefits**.
+""")
+
+
+st.subheader("2. Customers with Shorter Tenure are More Likely to Churn")
+
+st.markdown("""
+The analysis shows that customers who churn have **significantly lower average tenure (~18 months)** 
+compared to retained customers (~37 months).
+
+This suggests that **new customers are more vulnerable to churn during the early stages of their relationship with the company**.
+
+**Implication / Recommendation:**
+
+Companies should focus on **improving the onboarding experience and early customer engagement strategies** 
+to retain new users.
+""")
+
+
+st.subheader("3. Higher Monthly Charges are Associated with Higher Churn")
+
+st.markdown("""
+Customers who churn tend to have **higher average monthly charges** than those who stay.
+
+This may indicate that customers are **price-sensitive or perceive the service as not providing enough value for the cost**.
+
+**Implication / Recommendation:**
+
+Telecom providers may reduce churn by **offering personalized pricing plans, bundled services, 
+or discounts for high-paying customers**.
+""")
+
+
+st.subheader("4. Lack of Technical Support Increases Churn Risk")
+
+st.markdown("""
+Customers who **do not have tech support services show significantly higher churn rates** 
+compared to those who do.
+
+Support services appear to play an important role in **maintaining customer satisfaction**.
+
+**Implication / Recommendation:**
+
+Providing **accessible and reliable customer support services** can help reduce churn and improve customer loyalty.
+""")
+
+
+st.subheader("5. Service Value and Customer Experience Drive Retention")
+
+st.markdown("""
+Customers with **additional services such as online security, device protection, and tech support** 
+tend to stay longer with the company.
+
+This suggests that customers who perceive **greater value from bundled services are less likely to leave**.
+
+**Implication / Recommendation:**
+
+Telecom companies should promote **value-added services and service bundles** 
+to improve customer retention.
+""")
+
+st.markdown("---")
+
+#FAQ Section
+
+st.markdown('<div id="faq" style="position: relative; top: -70px;"></div>', unsafe_allow_html=True)
+st.header(":orange[FAQs about Customer Churn]")
+
 st.subheader(":blue[1. What is Customer Churn ?]")
 st.write("Customer churn is the percentage of customers that stopped using your company's product or service during a certain time frame. You can calculate churn rate by dividing the number of customers you lost during that time period -- say a quarter -- by the number of customers you had at the beginning of that time period.")
 st.write("For example, if you start your quarter with 400 customers and end with 380, your churn rate is 5% because you lost 5% of your customers.")
@@ -17,11 +137,11 @@ st.write("Well, it's important because it costs more to acquire new customers th
 st.write("Again, it might seem like a 5% churn rate is solid and healthy. You can still make a vast revenue with that churn rate. However, consider the example below when thinking about the impact of your churn rate.")
 st.write("In this example, simply decreasing your churn rate by 10% could add an extra $100,000 in revenue to your company. Dropping from 3% to 2.7% doesn't seem like a lot, but it actually adds large benefits to your company.")
 st.subheader(":blue[3. How to Reduce Customer Churn ?]")
-st.subheader("1. Focus your attention on your best customers.")
+st.markdown("#### 1. Focus your attention on your best customers.")
 st.write("Rather than simply focusing on offering incentives to customers who are considering churning, it could be even more beneficial to pool your resources into your loyal, profitable customers.")
-st.subheader("2. Analyze churn as it occurs.")
+st.markdown("#### 2. Analyze churn as it occurs.")
 st.write("Use your churned customers as a means of understanding why customers are leaving. Analyze how and when churn occurs in a customer's lifetime with your company, and use that data to put into place preemptive measures.")
-st.subheader("3. Show your customers that you care.")
+st.markdown("#### 3. Show your customers that you care.")
 st.write("Rather than simply focusing on offering incentives to customers who are considering churning, it could be even more beneficial to pool your resources into your loyal, profitable customers.")
 st.subheader(":blue[4. What is Customer Churn Rate ?]")
 st.write("Customer churn rate is the percentage of your customers or subscribers who cancel or don't renew their subscriptions during a given time period, such as a month or a year.")
@@ -49,43 +169,43 @@ st.write("Customer Churn Rate = 10%")
 st.write("Now that you've found out what your churn rate is, you're probably wondering what you should do next — especially if your churn rate is high. Take a look at the next section for some best practices that can help you decrease churn at your business.")
 st.subheader(":blue[7. Steps to Take After Calculating Churn Rate.]")
 st.write("Is your churn rate high? There are several strategies you could implement to decrease it. If you don't actively work to lower the churn rate, your company could suffer in the long-term.")
-st.subheader("1. Analyze churn to improve your customer service team.")
+st.markdown("#### 1. Analyze churn to improve your customer service team.")
 st.write("Despite your best efforts, customer churn will happen and when it does, use it as an opportunity to dig into what led the customer to leave, and what you can do to prevent a similar customer from churning for the same reason.")
 st.write("One crucial step is to track your churn and retention rates. You can do this with HubSpot's Customer Service Metrics Calculator — a free tool to calculate and document your retention rate over time.")
 st.write("You can use instances of churn to dig into individual customer support rep or manager performance, analyze your product or service against competitors, or identify challenges in the customer experience that you want to remedy with the help of your product and development teams.")
-st.subheader("2. Revamp your onboarding plan for new customers.")
+st.markdown("#### 2. Revamp your onboarding plan for new customers.")
 st.write("You can work to prevent customer churn from the moment someone becomes a customer by creating a robust new onboarding process. Use a new customer welcome email and offer dedicated 1:1 and online customer onboarding. You can also create educational content on your blog, social media, and video channels to instruct customers and show them how to get optimal value from your product or service.")
-st.subheader("3. Invest in more training for support and sales reps.")
+st.markdown("#### 3. Invest in more training for support and sales reps.")
 st.write("Sales reps should be selling the true value of your product or service so customers don't feel swindled. Additionally, customer support employees should be well-equipped to manage any issue that comes their way to secure customer satisfaction. Investing in processes and resources for these two departments can have a drastic impact on churn rate.")
-st.subheader("4. Ask for feedback at key moments — and respond promptly.")
+st.markdown("#### 4. Ask for feedback at key moments — and respond promptly.")
 st.write("Make sure you're constantly asking for customer feedback at key moments across the customer experience. If you've already identified that customers are likely to churn if they don't log into your tool every 15 days, ask them for feedback around day 10 and try to re-engage them.")
 st.write("If they hit a milestone using your product or service, ask them for feedback after that moment. Figure out the key moments that make or break a happy customer and ask for feedback at those touchpoints to strengthen the relationship.")
 st.write("Sometimes, customer feedback comes in the form of negative customer reviews — in which case you'll want to respond promptly and appropriately.")
-st.subheader("5. Communicate proactively with customers.")
+st.markdown("#### 5. Communicate proactively with customers.")
 st.write("Build rapport with your customers by communicating with them proactively so they view you as a trusted partner. Periodically reach out with content you think they'll find interesting or helpful, connect and engage with them on social media, and reach out if issues or outages crop up on the product side so they know they can depend on you.")
-st.subheader("6. Offer exclusive perks to existing customers.")
+st.markdown("#### 6. Offer exclusive perks to existing customers.")
 st.write("To prevent further churn, you can offer perks to your current customers. While you could potentially institute a reward program, that's a better fit for retail businesses. You can instead opt for personalized touch-points every once in a while, such as an in-person coffee chat or personal visit to their office.")
 st.write("If your business is small, you can also have the CEO personally check in with existing customers to find out how they're doing. This is also a great opportunity to get feedback. A busy customer may not take a survey, but if the CEO asks them if they have any comments, the customer may be more likely to respond.")
-st.subheader("7. Leverage feedback from free trial customers.")
+st.markdown("#### 7. Leverage feedback from free trial customers.")
 st.write("Churn doesn't happen until you lose revenue after a customer leaves your business. But if someone doesn't purchase your product after a free trial, that can be counted as churn — metaphorically speaking.")
 st.write("Carry out a survey of those who didn't purchase your product after a free trial. A customer who's already left the business likely won't answer many questions about your product or why it didn't work for them. Someone who took a free trial and ultimately didn't end up making a purchase will expect a survey link. They've also had little interaction with your business, so they're more likely to be frank.")
 st.write("Use this feedback to improve your product and learn what makes customers 'churn' before they even become a paying subscriber.")
 st.write("Pair these tips with customer retention strategies to lower churn rate.")
 st.subheader(":blue[8. Churn Rate Examples.]")
 st.write("Many SaaS companies, specifically in the B2C space, publish their churn rates to show how well they retain customers. Use these examples to guide your understanding of your own churn rate — what it should look like for your business and where some famous companies lie on the spectrum.")
-st.subheader("Netflix: 3.3% Monthly Churn Rate")
+st.markdown("#### Netflix: 3.3% Monthly Churn Rate")
 st.write("Netflix has one of the lowest churn rates in the video streaming industry. Its monthly churn rate is strikingly low at 3.5%, meaning that just over 96% of customers choose to stay with Netflix. Causes may include its expansive catalog of shows and its well-established brand voice.")
-st.subheader("Disney+: 3.7% Monthly Churn Rate")
+st.markdown("#### Disney+: 3.7% Monthly Churn Rate")
 st.write("Disney has always avoided being part of other streaming services, and it launched its own service to distribute its shows online. Disney+'s monthly churn rate is 5%, as of March 2023. Churn rates for the Disney Bundle, which includes Disney+, Hulu, and ESPN+, is even lower at just 2%.")
-st.subheader("Spotify: 3.9% Monthly Churn Rate")
+st.markdown("#### Spotify: 3.9% Monthly Churn Rate")
 st.write("Spotify is a popular music streaming service that's known for its personalized recommendations and expansive music library. It has a reported churn rate of 3.9% at the end of 2021 according to CFO Paul Vogel.")
-st.subheader("Hulu: 5.2% Monthly Churn Rate")
+st.markdown("#### Hulu: 5.2% Monthly Churn Rate")
 st.write("Hulu is one of Netflix's principal competitors. Well-known for its exclusive TV shows, it has an 11% market share in the video streaming industry and a 4.7% churn rate.")
-st.subheader("Peloton: 1.41% Monthly Churn Rate")
+st.markdown("#### Peloton: 1.41% Monthly Churn Rate")
 st.write("Peloton has a 1.1% monthly churn rate. The exercise equipment and fitness subscription company may enjoy a high retention rate for being the first in-home cycling fitness subscription. Its status as the first of its kind has cemented its subscriber base.")
-st.subheader("Adobe: 10% Yearly Churn Rate")
+st.markdown("#### Adobe: 10% Yearly Churn Rate")
 st.write("According to Rob Giglio, former Vice President of Adobe's Digital Media, Adobe has less than a 10% yearly churn rate and over a 90% customer retention rate.")
-st.subheader("Apple TV+: 15.6% Monthly Churn Rate")
+st.markdown("#### Apple TV+: 15.6% Monthly Churn Rate")
 st.write("Apple TV+'s monthly churn rate is at 15.6%. Some outlets have reported that it's as high as 20%. A tech journalist called it the 'most unloved' of Apple's platforms. Another has argued that its catalog is 'tiny' and that the content is largely non-original. Additionally, many Apple users were on a free trial and Apple had been extending promotional periods since it launched, which may be the reason why its churn rate is higher compared to its competitors.")
 st.subheader(":blue[9. What is a good churn rate ?]")
 st.write("A good or 'acceptable' churn rate is from 2% to 8%, especially for B2C SaaS businesses that offer self-serve solutions. The lower, the better, or it can significantly impact your Monthly Recurring Revenue (MRR). For B2B SaaS businesses with high average contract values (greater than $1,000 per month), churn rate should be below 2%.")

@@ -4,14 +4,20 @@ import streamlit as st
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
+st.sidebar.title("Navigation")
+
+st.sidebar.markdown("""
+**[Churn Dashboard](/)**
+""")
+
 churn_data = pd.read_csv(
-    "C:\\Users\\ut1a2\\Desktop\\Data Analytics Projects 🔥\\Customer-Churn-Analysis-and-Classification\\tel_churn.csv")
+    "C:\\Users\\ut1a2\\Desktop\\Data Analytics Projects 🔥\\Telecom-Customer-Churn-Analysis-and-Prediction\\tel_churn.csv")
 x = churn_data.drop('Churn', axis=1)
 y = churn_data['Churn']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
 loaded_model = pickle.load(open(
-    'C:\\Users\\ut1a2\\Desktop\\Data Analytics Projects 🔥\\Customer-Churn-Analysis-and-Classification\\model.sav', 'rb'))
+    "C:\\Users\\ut1a2\\Desktop\\Data Analytics Projects 🔥\\Telecom-Customer-Churn-Analysis-and-Prediction\\model.sav", 'rb'))
 
 def churn_prediction(input_data):
 
