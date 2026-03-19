@@ -152,7 +152,7 @@ streamlit run app.py
 ---
 
 ## Project Structure
-
+```text
 Telecom-Customer-Churn-Analysis-and-Prediction/
 │
 ├── README.md
@@ -171,7 +171,7 @@ Telecom-Customer-Churn-Analysis-and-Prediction/
 │
 ├── Churn Analysis - EDA.ipynb
 └── Churn Analysis - Model Building.ipynb
-
+```
 ---
 
 ## Key Business Insights
